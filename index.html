@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="renderArea"></div>
+   
+    <form id="formulario" class="formulario">
+
+        <h1>Inicio De Sesion</h1>
+
+        <input placeholder="Ingresa tu usuario" type="text" class="input" id="usuarioHtml">
+        <span class="esconder" id="errorUsuario">Usuario incorrecto</span>
+
+        <input placeholder="Ingresa tu password" type="password" class="input" id="passwordHtml">
+        <span class="esconder" id="errorPasword">Password incorrecto</span>
+
+        <button type="submit">Ingresar</button>
+        <span class="esconder" id="errorDatos">Datos incorrectos</span>
+
+    </form>
+
+    <div>
+        <label for="ingresarMonto">Ingresar Monto</label>
+        <input type="ingresarMonto" placeholder="Ingresar Monto" id="ingresar" name="ingresar">
+        <button onclick="ingrsar(event)">Ingresar</button>
+    </div>
+
+    <div>
+        <label for="retirarMonto">Retirar Monto</label>
+        <input type="retirarMonto" placeholder="Retirar Monto" id="retirar" name="retirar">
+        <button onclick="retirar(event)">Retirar</button>
+    </div>
+
+    <script type="module" src="./index.js"></script>
+
+</body>
+</html>
