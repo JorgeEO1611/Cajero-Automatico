@@ -1,4 +1,4 @@
-
+import cajero from './cajero.js';
 
 const userDB = [
     {
@@ -22,14 +22,6 @@ const userDB = [
         pass: '567'
     },
 ]
-var cuentas = [
-    { nombre: 'Mali',
-         saldo: 200 },
-    { nombre: 'Gera', 
-        saldo: 290 },
-    { nombre: 'Maui',
-         saldo: 67 },
-  ];
 
 const formulario =
 document.getElementById('formulario')
@@ -42,31 +34,11 @@ function crearBienvenida(){
     document.createElement('p')
     parrafo.innerHTML = 'Ingresaste correctamente, Bienvenido!'
 
-    let contenedorAtm = document.createElement('div');
-
-    let render = 
-    document.getElementById('renderArea')
-    render.appendChild(parrafo)
-    render.appendChild(contenedorAtm)
-
-    let consultarSaldo = document.createElement('p');
-    consultarSaldo.innerHTML = cuentas[0].saldo
-    consultarSaldo.classList.add('consultarSaldo')
-
-    let ingresarMonto = document.createElement('input')
-    ingresarMonto.innerHTML = cuentas[0].saldo
-    var contenedorIngresar = [
-        contenedorIngresar.appendChild('input')
-        document.getElementById('ingresar')
-    ]
-
-    let retirarMonto = document.createElement('input')
-    retirarMonto.innerHTML = cuentas[0].saldo
-    var contenedorRetiro = [
-        contenedorRetiro.appendChild(input)
-        document.getElementById('retirar')
-    ]
-    contenedorAtm.appendChild(consultarSaldo)
+    let render = document.getElementById('renderArea');
+    render.appendChild(parrafo);
+    setTimeout(() => {
+        parrafo.classList.add('esconder');   
+    }, 1000);
 }
 
 function validar(usuario, password){
@@ -74,17 +46,16 @@ function validar(usuario, password){
         
 
         if (usuario === "" && password === ""){
-            console.log('entre')
             mostrarError('Usuario')
         }
 
         else if(usuario === userDB[index].user && password === userDB[index].pass){ 
            crearBienvenida();
-            console.log('Bienvenido',usuario)
+            console.log('Bienvenido',usuario);
+            cajero(usuario)
         }
 
          else{
-            console.log('datosError')
             mostrarError('Datos')
         }
     }
@@ -93,9 +64,6 @@ function validar(usuario, password){
 function mostrarError(tipo){
     let errorAMostrar =
     document.getElementById(`error${tipo}`)
-
-    console.log(errorAMostrar)
-
     errorAMostrar.classList.remove('esconder')
     errorAMostrar.classList.add('error')
     setTimeout(()=>{
@@ -115,9 +83,3 @@ formulario.addEventListener('submit',(evento)=>{
 
     validar(usuarioIngresado, passwordIngresado)
 })
-
-
-
-const cajero = () =>{
-    
-}
