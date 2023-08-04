@@ -12,9 +12,8 @@ export default function cajero(usuario) {
     for (let index = 0; index < cuentas.length; index++) {
         if (usuario === cuentas[index].user){
             const { saldo } = cuentas[index];
-            console.log(saldo);
-            resultado = saldo;
-            console.log(resultado);
+            console.log('resultado')
+            result = saldo;
         }
     }
 }
@@ -28,8 +27,10 @@ render.appendChild(contenedorAtm);
 
 //Contenedor Saldo
     const consultarSaldo = document.createElement('p');
-    consultarSaldo.innerHTML = cuentas[0].saldo;
+    consultarSaldo.innerHTML = result;
     consultarSaldo.classList.add('consultarSaldo');
+
+    //consultarSaldo.innerHTML = 'Tu Saldo es:'
 
     contenedorAtm.appendChild(consultarSaldo);
 
