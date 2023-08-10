@@ -38,7 +38,7 @@ function crearBienvenida(){
     render.appendChild(parrafo);
     setTimeout(() => {
         parrafo.classList.add('esconder');   
-    }, 1000);
+    }, 2000);
 }
 
 function validar(usuario, password){

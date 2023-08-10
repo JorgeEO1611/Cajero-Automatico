@@ -7,18 +7,15 @@ var cuentas = [
 ];
 
 export default function cajero(usuario) {
-    let resultado;
+    let result;
 
     for (let index = 0; index < cuentas.length; index++) {
         if (usuario === cuentas[index].user){
             const { saldo } = cuentas[index];
-            console.log('resultado')
             result = saldo;
+            //console.log('resultado')
         }
-    }
-}
-
-// console.log(resultado);
+    } //console.log(resultado);
 
 const render = document.getElementById('renderArea');
 const contenedorAtm = document.createElement('section');
@@ -75,7 +72,9 @@ retirarMontoBox.appendChild(retirarMontoBtn);
 retirarMontoBtn.addEventListener('click', (e) => {
     e.preventDefault();
     const valueInput = retirarMontoInput.value;
-    result += parseInt(valueInput);
+    result -= parseInt(valueInput);
     consultarSaldo.innerHTML = result;
     ingresarMontoInput.value = '';
 });
+}
+
